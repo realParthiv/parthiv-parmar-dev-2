@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parthiv Parmar | Python & Blockchain Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#39FF14',
+                        secondary: '#0F0F0F',
+                        accent: '#1A1A1A',
+                        surface: '#121212',
+                        muted: '#888888'
+                    },
+                    fontFamily: {
+                        display: ['Space Grotesk', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --primary: #39FF14;
+            --bg: #0F0F0F;
+            --color-primary: #39FF14;
+            --color-secondary: #0F0F0F;
+            --color-accent: #1A1A1A;
+        }
+        body {
+            background-color: var(--bg);
+            color: #f0f0f0;
+            overflow-x: hidden;
+        }
+        .grid-bg {
+            background-image: radial-gradient(circle at 2px 2px, rgba(57, 255, 20, 0.05) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+        .glow-hover:hover {
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.2);
+            border-color: var(--primary);
+        }
+        .glass-nav {
+            background: rgba(15, 15, 15, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .neon-text {
+            text-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
+        }
+        .terminal-header {
+            background: #1A1A1A;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+        .custom-cursor {
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: difference;
+            transition: transform 0.1s ease;
+        }
+        .parallax-element {
+            will-change: transform;
+        }
+    </style>
+</head>
+<body class="font-body">
+    <div class="custom-cursor hidden md:block"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="font-display text-xl font-bold tracking-tighter flex items-center gap-2">
+                <span class="text-primary tracking-widest uppercase text-xs border border-primary px-2 py-1">PP</span>
+                <span class="hidden sm:inline">PARTHIV PARMAR</span>
+            </a>
+            <div class="hidden md:flex gap-8 text-sm font-medium uppercase tracking-widest">
+                <a href="index.html" class="text-primary">Home</a>
+                <a href="about.html" class="hover:text-primary transition-colors">About</a>
+                <a href="work.html" class="hover:text-primary transition-colors">Work</a>
+                <a href="contact.html" class="hover:text-primary transition-colors">Contact</a>
+            </div>
+            <a href="#contact" class="bg-primary text-secondary px-5 py-2 text-xs font-bold uppercase tracking-widest hover:bg-white transition-all">Hire Me</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden grid-bg">
+        <div class="absolute inset-0 z-0">
+            <div class="parallax-element absolute top-1/4 left-1/4 w-96 h-96 bg-primary opacity-[0.03] blur-[120px] rounded-full"></div>
+            <div class="parallax-element absolute bottom-1/4 right-1/4 w-64 h-64 bg-primary opacity-[0.05] blur-[100px] rounded-full"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+            <div class="hero-content">
+                <p class="font-mono text-primary mb-6 tracking-widest uppercase text-sm lg:text-base opacity-0 hero-el">
+                    &lt; Associate Python & Blockchain Developer /&gt;
+                </p>
+                <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-none mb-8 opacity-0 hero-el">
+                    Architecting Scalable <br/>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-green-300">Backends & Web3</span>
+                </h1>
+                <p class="max-w-2xl mx-auto text-muted text-lg md:text-xl mb-12 opacity-0 hero-el leading-relaxed">
+                    Associate Python Developer from Ahmedabad specializing in Django, FastAPI, and Blockchain systems for international clients.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center opacity-0 hero-el">
+                    <a href="#contact" class="px-8 py-4 bg-primary text-black font-bold uppercase tracking-widest hover:scale-105 transition-transform w-full sm:w-auto">
+                        Start a Project
+                    </a>
+                    <a href="#work" class="px-8 py-4 border border-white/20 hover:border-primary transition-colors font-bold uppercase tracking-widest w-full sm:w-auto">
+                        View Portfolio
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-20">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-secondary border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="reveal">
+                    <h2 class="font-display text-4xl font-bold mb-8 italic">The Philosophy</h2>
+                    <p class="text-xl leading-relaxed text-muted mb-6">
+                        I am a Python enthusiast dedicated to building high-performance backend systems and innovative Web3 applications. 
+                    </p>
+                    <p class="text-lg leading-relaxed text-muted mb-8">
+                        My expertise lies in bridging the gap between traditional enterprise logic and the decentralized web through robust API design and smart contract integration. I believe code should be as clean as it is functional.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="p-4 border border-white/10 bg-surface">
+                            <div class="text-primary font-display text-3xl font-bold">50+</div>
+                            <div class="text-xs uppercase tracking-widest text-muted mt-2">API Endpoints</div>
+                        </div>
+                        <div class="p-4 border border-white/10 bg-surface">
+                            <div class="text-primary font-display text-3xl font-bold">10+</div>
+                            <div class="text-xs uppercase tracking-widest text-muted mt-2">DApps Built</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal relative">
+                    <div class="terminal-header flex gap-2 px-4 py-2">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                    </div>
+                    <div class="bg-accent p-8 rounded-b-lg border-x border-b border-white/10 font-mono text-sm leading-relaxed">
+                        <p class="text-primary">class Developer:</p>
+                        <p class="pl-4 text-white">def __init__(self):</p>
+                        <p class="pl-8 text-muted">self.name = "Parthiv Parmar"</p>
+                        <p class="pl-8 text-muted">self.role = "Python & Blockchain Specialist"</p>
+                        <p class="pl-4 text-white">def primary_stack(self):</p>
+                        <p class="pl-8 text-muted">return ["Django", "FastAPI", "Solidity", "Web3.py"]</p>
+                        <p class="pl-4 text-white">def mission(self):</p>
+                        <p class="pl-8 text-muted">print("Scalability meets Decentralization")</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 grid-bg">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-16 text-center reveal">
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">Core Capabilities</h2>
+                <p class="text-muted uppercase tracking-[0.3em] text-sm">Specialized Technical Solutions</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="p-8 bg-surface border border-white/5 glow-hover transition-all group reveal">
+                    <div class="w-12 h-12 mb-6 flex items-center justify-center bg-accent text-primary">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 17l6-6-6-6M12 19h8"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 group-hover:text-primary transition-colors">API Development</h3>
+                    <p class="text-muted text-sm leading-relaxed">Building high-performance, secure REST and GraphQL APIs using Django Rest Framework and FastAPI.</p>
+                </div>
+                <!-- Service 2 -->
+                <div class="p-8 bg-surface border border-white/5 glow-hover transition-all group reveal">
+                    <div class="w-12 h-12 mb-6 flex items-center justify-center bg-accent text-primary">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 group-hover:text-primary transition-colors">Smart Contracts</h3>
+                    <p class="text-muted text-sm leading-relaxed">Engineering secure, gas-optimized Solidity smart contracts for Ethereum and EVM-compatible chains.</p>
+                </div>
+                <!-- Service 3 -->
+                <div class="p-8 bg-surface border border-white/5 glow-hover transition-all group reveal">
+                    <div class="w-12 h-12 mb-6 flex items-center justify-center bg-accent text-primary">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 group-hover:text-primary transition-colors">Certificate Verification</h3>
+                    <p class="text-muted text-sm leading-relaxed">Developing blockchain-powered systems for immutable credential and certificate security.</p>
+                </div>
+                <!-- Service 4 -->
+                <div class="p-8 bg-surface border border-white/5 glow-hover transition-all group reveal">
+                    <div class="w-12 h-12 mb-6 flex items-center justify-center bg-accent text-primary">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 00-2 2z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 group-hover:text-primary transition-colors">Invoice OCR</h3>
+                    <p class="text-muted text-sm leading-relaxed">High-precision automated data extraction utilizing Python-based machine learning and Tesseract.</p>
+                </div>
+                <!-- Service 5 -->
+                <div class="p-8 bg-surface border border-white/5 glow-hover transition-all group reveal">
+                    <div class="w-12 h-12 mb-6 flex items-center justify-center bg-accent text-primary">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 group-hover:text-primary transition-colors">Web3 Integration</h3>
+                    <p class="text-muted text-sm leading-relaxed">Seamlessly connecting frontend DApps with complex backend architectures and node providers.</p>
+                </div>
+                <!-- Service 6 -->
+                <div class="p-8 bg-surface border border-white/5 glow-hover transition-all group reveal">
+                    <div class="w-12 h-12 mb-6 flex items-center justify-center bg-accent text-primary">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 group-hover:text-primary transition-colors">Custom SaaS</h3>
+                    <p class="text-muted text-sm leading-relaxed">Full-stack development of subscription-based platforms with multi-tenant architectures.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Section -->
+    <section id="work" class="py-24 bg-secondary">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4 reveal">
+                <div>
+                    <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">Featured Work</h2>
+                    <p class="text-muted uppercase tracking-widest text-sm">Case Studies & Recent Projects</p>
+                </div>
+                <a href="work.html" class="text-primary text-sm font-bold border-b border-primary pb-1 hover:text-white hover:border-white transition-all">VIEW ALL PROJECTS</a>
+            </div>
+
+            <div class="grid gap-24">
+                <!-- Project 1 -->
+                <div class="group relative grid lg:grid-cols-12 items-center gap-8 reveal">
+                    <div class="lg:col-span-7 overflow-hidden bg-accent aspect-video border border-white/10 relative">
+                        <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center z-10">
+                            <span class="px-6 py-2 bg-black text-primary font-bold">VIEW CASE STUDY</span>
+                        </div>
+                        <div class="w-full h-full flex items-center justify-center text-primary/20 text-8xl font-display font-bold">
+                            01
+                        </div>
+                    </div>
+                    <div class="lg:col-span-5 lg:-ml-12 z-20">
+                        <h3 class="text-primary font-mono mb-2">Blockchain / Security</h3>
+                        <h4 class="text-3xl font-display font-bold mb-6">AcademicShield</h4>
+                        <div class="bg-surface p-6 border border-white/10 shadow-2xl mb-6">
+                            <p class="text-muted">A blockchain-powered system for immutable certificate verification and academic security, ensuring credentials cannot be tampered with.</p>
+                        </div>
+                        <div class="flex gap-4 text-xs font-bold uppercase tracking-widest text-muted">
+                            <span>Solidity</span> <span>Ethereum</span> <span>Python</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="group relative grid lg:grid-cols-12 items-center gap-8 reveal">
+                    <div class="lg:col-span-5 z-20 lg:text-right">
+                        <h3 class="text-primary font-mono mb-2">Django / Backend</h3>
+                        <h4 class="text-3xl font-display font-bold mb-6">PujaGuru</h4>
+                        <div class="bg-surface p-6 border border-white/10 shadow-2xl mb-6">
+                            <p class="text-muted">A scalable religious services booking platform developed with complex Django architectures, handling high-traffic booking cycles seamlessly.</p>
+                        </div>
+                        <div class="flex gap-4 lg:justify-end text-xs font-bold uppercase tracking-widest text-muted">
+                            <span>Django</span> <span>PostgreSQL</span> <span>Redis</span>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-7 order-first lg:order-last overflow-hidden bg-accent aspect-video border border-white/10 relative">
+                        <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center z-10">
+                            <span class="px-6 py-2 bg-black text-primary font-bold">VIEW CASE STUDY</span>
+                        </div>
+                        <div class="w-full h-full flex items-center justify-center text-primary/20 text-8xl font-display font-bold">
+                            02
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="group relative grid lg:grid-cols-12 items-center gap-8 reveal">
+                    <div class="lg:col-span-7 overflow-hidden bg-accent aspect-video border border-white/10 relative">
+                        <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center z-10">
+                            <span class="px-6 py-2 bg-black text-primary font-bold">VIEW CASE STUDY</span>
+                        </div>
+                        <div class="w-full h-full flex items-center justify-center text-primary/20 text-8xl font-display font-bold">
+                            03
+                        </div>
+                    </div>
+                    <div class="lg:col-span-5 lg:-ml-12 z-20">
+                        <h3 class="text-primary font-mono mb-2">Machine Learning / Automation</h3>
+                        <h4 class="text-3xl font-display font-bold mb-6">Invoice OCR System</h4>
+                        <div class="bg-surface p-6 border border-white/10 shadow-2xl mb-6">
+                            <p class="text-muted">High-precision automated data extraction tool utilizing Python-based machine learning libraries and custom extraction logic.</p>
+                        </div>
+                        <div class="flex gap-4 text-xs font-bold uppercase tracking-widest text-muted">
+                            <span>Tesseract</span> <span>Python</span> <span>OpenCV</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 grid-bg border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16">
+                <div class="reveal">
+                    <h2 class="font-display text-4xl md:text-6xl font-bold mb-8">Let's build the <br/><span class="text-primary italic">next generation.</span></h2>
+                    <p class="text-muted text-lg mb-12 max-w-md">Currently available for freelance projects and full-time opportunities. Let’s collaborate on something extraordinary.</p>
+                    
+                    <div class="space-y-6">
+                        <a href="mailto:your@email.com" class="block group">
+                            <p class="text-xs uppercase tracking-widest text-muted mb-1">Email Me</p>
+                            <p class="text-xl font-bold group-hover:text-primary transition-colors">your@email.com</p>
+                        </a>
+                        <div class="flex gap-6">
+                            <a href="#" class="w-12 h-12 flex items-center justify-center border border-white/10 hover:border-primary text-muted hover:text-primary transition-all">LI</a>
+                            <a href="#" class="w-12 h-12 flex items-center justify-center border border-white/10 hover:border-primary text-muted hover:text-primary transition-all">GH</a>
+                            <a href="#" class="w-12 h-12 flex items-center justify-center border border-white/10 hover:border-primary text-muted hover:text-primary transition-all">TW</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal">
+                    <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6 bg-surface p-8 border border-white/10">
+                        <input type="hidden" name="access_key" value="REPLACE_WITH_YOUR_WEB3FORMS_KEY">
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs uppercase tracking-widest text-muted mb-2">Name</label>
+                                <input type="text" name="name" class="w-full bg-accent border border-white/10 p-4 outline-none focus:border-primary transition-colors" required>
+                            </div>
+                            <div>
+                                <label class="block text-xs uppercase tracking-widest text-muted mb-2">Email</label>
+                                <input type="email" name="email" class="w-full bg-accent border border-white/10 p-4 outline-none focus:border-primary transition-colors" required>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-widest text-muted mb-2">Project Subject</label>
+                            <input type="text" name="subject" class="w-full bg-accent border border-white/10 p-4 outline-none focus:border-primary transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-widest text-muted mb-2">Message</label>
+                            <textarea name="message" rows="5" class="w-full bg-accent border border-white/10 p-4 outline-none focus:border-primary transition-colors" required></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-4 bg-primary text-black font-bold uppercase tracking-widest hover:bg-white transition-colors">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-3">
+                <span class="text-primary font-bold border border-primary px-2 py-1 text-xs">PP</span>
+                <span class="text-sm font-display tracking-widest uppercase text-muted">Parthiv Parmar &copy; 2023</span>
+            </div>
+            <div class="flex gap-8 text-xs font-bold uppercase tracking-[0.2em] text-muted">
+                <a href="#" class="hover:text-primary transition-colors">LinkedIn</a>
+                <a href="#" class="hover:text-primary transition-colors">GitHub</a>
+                <a href="#" class="hover:text-primary transition-colors">Twitter</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Lenis Smooth Scroll
+        const lenis = new Lenis();
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Custom Cursor
+        const cursor = document.querySelector('.custom-cursor');
+        document.addEventListener('mousemove', (e) => {
+            gsap.to(cursor, {
+                x: e.clientX - 10,
+                y: e.clientY - 10,
+                duration: 0.1,
+                ease: "power2.out"
+            });
+        });
+
+        // Hero Parallax Elements
+        document.addEventListener('mousemove', (e) => {
+            const elements = document.querySelectorAll('.parallax-element');
+            const x = (e.clientX - window.innerWidth / 2) * 0.05;
+            const y = (e.clientY - window.innerHeight / 2) * 0.05;
+            elements.forEach(el => {
+                gsap.to(el, { x: x, y: y, duration: 1 });
+            });
+        });
+
+        // Hero Entrance
+        const heroTl = gsap.timeline();
+        heroTl.to('.hero-el', {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            stagger: 0.2,
+            ease: "power4.out",
+            delay: 0.5
+        });
+
+        // Scroll Disclosures
+        const revealElements = document.querySelectorAll('.reveal');
+        revealElements.forEach(el => {
+            gsap.from(el, {
+                scrollTrigger: {
+                    trigger: el,
+                    start: "top 85%",
+                    toggleActions: "play none none none"
+                },
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                ease: "power3.out"
+            });
+        });
+
+        // Project Hover Interactivity
+        const projectCards = document.querySelectorAll('.group');
+        projectCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                gsap.to(cursor, { scale: 4, opacity: 0.1 });
+            });
+            card.addEventListener('mouseleave', () => {
+                gsap.to(cursor, { scale: 1, opacity: 1 });
+            });
+        });
+    </script>
+</body>
+</html>
