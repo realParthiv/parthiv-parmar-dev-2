@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Parthiv Parmar - Python & Blockchain Architect</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+    <style>
+        :root {
+            --primary: #39FF14;
+            --secondary: #0F0F0F;
+            --accent: #1A1A1A;
+            --color-primary: #39FF14;
+            --color-secondary: #0F0F0F;
+            --color-accent: #1A1A1A;
+            --bg: #050505;
+            --text: #f0f0f0;
+            --text-dim: #a0a0a0;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .font-display {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .neon-glow {
+            text-shadow: 0 0 10px rgba(57, 255, 20, 0.5), 0 0 20px rgba(57, 255, 20, 0.2);
+        }
+
+        .border-neon {
+            border: 1px solid rgba(57, 255, 20, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .border-neon:hover {
+            border-color: var(--primary);
+            box-shadow: 0 0 15px rgba(57, 255, 20, 0.1);
+        }
+
+        .grid-bg {
+            background-image: radial-gradient(rgba(57, 255, 20, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .terminal-header {
+            background: #1a1a1a;
+            border-bottom: 1px solid #333;
+            display: flex;
+            padding: 8px 12px;
+            gap: 6px;
+        }
+
+        .dot { width: 10px; height: 10px; border-radius: 50%; }
+        .dot-red { background: #ff5f56; }
+        .dot-amber { background: #ffbd2e; }
+        .dot-green { background: #27c93f; }
+
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: rgba(57, 255, 20, 0.1);
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            animation: scan 4s linear infinite;
+        }
+
+        @keyframes scan {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+
+        .glass {
+            background: rgba(15, 15, 15, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .nav-link {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        ::selection {
+            background: var(--primary);
+            color: var(--secondary);
+        }
+    </style>
+</head>
+<body class="grid-bg">
+
+    <!-- Header -->
+    <nav class="fixed top-0 w-full z-50 glass border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="font-display font-bold text-xl tracking-tighter">
+                PARTHIV<span class="text-[#39FF14]">.</span>PARMAR
+            </a>
+            <div class="hidden md:flex space-x-8 items-center text-sm uppercase tracking-widest font-medium">
+                <a href="index.html" class="nav-link">Index</a>
+                <a href="about.html" class="text-[#39FF14]">About</a>
+                <a href="work.html" class="nav-link">Work</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <div class="md:hidden">
+                <!-- Mobile menu toggle (Simplified) -->
+                <div class="w-6 h-0.5 bg-white mb-1.5"></div>
+                <div class="w-6 h-0.5 bg-[#39FF14] mb-1.5"></div>
+                <div class="w-6 h-0.5 bg-white"></div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-20">
+        <!-- Hero Section -->
+        <section class="max-w-7xl mx-auto px-6 mb-32">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7">
+                    <span class="text-[#39FF14] font-display text-sm tracking-widest uppercase mb-4 block">System Status: Operational</span>
+                    <h1 class="text-5xl md:text-7xl font-bold leading-none mb-8">
+                        The Architect Behind the <span class="text-[#39FF14]">Blocks</span>.
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-400 max-w-2xl leading-relaxed mb-10">
+                        I am a Python enthusiast dedicated to building high-performance backend systems and innovative Web3 applications. My expertise lies in bridging the gap between traditional enterprise logic and the decentralized web through robust API design and smart contract integration.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="px-6 py-3 border-neon bg-white/5 rounded-full flex items-center gap-3">
+                            <span class="w-2 h-2 bg-[#39FF14] rounded-full animate-pulse"></span>
+                            <span class="text-xs font-mono uppercase tracking-widest">Available for Remote Projects</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-5 relative">
+                    <!-- Terminal Aesthetic -->
+                    <div class="rounded-xl overflow-hidden border border-white/10 shadow-2xl bg-black relative">
+                        <div class="scanline"></div>
+                        <div class="terminal-header">
+                            <div class="dot dot-red"></div>
+                            <div class="dot dot-amber"></div>
+                            <div class="dot dot-green"></div>
+                            <span class="text-[10px] text-gray-500 font-mono ml-4">profile.py</span>
+                        </div>
+                        <div class="p-6 font-mono text-sm sm:text-base space-y-2 opacity-90">
+                            <p><span class="text-purple-400">class</span> <span class="text-[#39FF14]">Developer</span>:</p>
+                            <p class="pl-4"><span class="text-blue-400">def</span> <span class="text-yellow-300">__init__</span>(self):</p>
+                            <p class="pl-8">self.name = <span class="text-orange-300">"Parthiv Parmar"</span></p>
+                            <p class="pl-8">self.role = <span class="text-orange-300">"Associate Python & Blockchain Dev"</span></p>
+                            <p class="pl-8">self.location = <span class="text-orange-300">"Ahmedabad, India"</span></p>
+                            <p class="pl-4"><span class="text-blue-400">def</span> <span class="text-yellow-300">get_expertise</span>(self):</p>
+                            <p class="pl-8 text-gray-500">return {</p>
+                            <p class="pl-12 text-orange-300">"backend": ["Django", "FastAPI"],</p>
+                            <p class="pl-12 text-orange-300">"web3": ["Ethereum", "Solidity"],</p>
+                            <p class="pl-12 text-orange-300">"automation": ["OCR", "ML"]</p>
+                            <p class="pl-8 text-gray-500">}</p>
+                        </div>
+                    </div>
+                    <!-- Absolute Decorative Block -->
+                    <div class="absolute -bottom-6 -right-6 w-32 h-32 border border-[#39FF14]/20 rounded-lg -z-10 animate-spin-slow" style="animation-duration: 20s;"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Values/Mission -->
+        <section class="border-y border-white/5 py-24 bg-[#0a0a0a]">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+                    <div>
+                        <h3 class="text-[#39FF14] text-3xl font-display mb-6">01 // Scalability</h3>
+                        <p class="text-gray-400 leading-relaxed">
+                            Building for the future requires architectures that don't just work today, but scale tomorrow. I focus on Django and FastAPI for their robust handling of complex logic and high traffic.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="text-[#39FF14] text-3xl font-display mb-6">02 // Trustless</h3>
+                        <p class="text-gray-400 leading-relaxed">
+                            Blockchain isn't just a buzzword; it's a new layer of trust. My work in smart contract engineering ensures that data integrity is baked into the protocol, not just the database.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="text-[#39FF14] text-3xl font-display mb-6">03 // Precision</h3>
+                        <p class="text-gray-400 leading-relaxed">
+                            From high-precision Invoice OCR tools to immutable certificate verification, I believe in software that minimizes human error through intelligent automation.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Expertise Section -->
+        <section class="max-w-7xl mx-auto px-6 py-32">
+            <div class="flex flex-col md:flex-row gap-16">
+                <div class="md:w-1/3">
+                    <h2 class="text-4xl font-bold font-display sticky top-32">
+                        Core <br/><span class="text-[#39FF14]">Toolkit</span>
+                    </h2>
+                </div>
+                <div class="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-8">
+                    <div class="p-8 border border-white/5 rounded-2xl bg-white/[0.02] hover:bg-white/[0.04] transition-all">
+                        <div class="w-12 h-12 bg-[#39FF14]/10 rounded-lg flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6 text-[#39FF14]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3">Backend Engineering</h4>
+                        <p class="text-gray-500 text-sm mb-4">Python, Django, FastAPI, PostgreSQL, Redis</p>
+                        <p class="text-gray-400 text-sm leading-relaxed">Specializing in RESTful/GraphQL APIs and microservices that serve as the backbone for international platforms.</p>
+                    </div>
+
+                    <div class="p-8 border border-white/5 rounded-2xl bg-white/[0.02] hover:bg-white/[0.04] transition-all">
+                        <div class="w-12 h-12 bg-[#39FF14]/10 rounded-lg flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6 text-[#39FF14]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3">Web3 & Solidity</h4>
+                        <p class="text-gray-500 text-sm mb-4">Ethereum, Smart Contracts, Web3.py, Hardhat</p>
+                        <p class="text-gray-400 text-sm leading-relaxed">Developing secure, audited smart contracts for certificate verification and decentralized logic.</p>
+                    </div>
+
+                    <div class="p-8 border border-white/5 rounded-2xl bg-white/[0.02] hover:bg-white/[0.04] transition-all">
+                        <div class="w-12 h-12 bg-[#39FF14]/10 rounded-lg flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6 text-[#39FF14]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3">Automation & OCR</h4>
+                        <p class="text-gray-500 text-sm mb-4">Tesseract, OpenCV, Scrapy, Machine Learning</p>
+                        <p class="text-gray-400 text-sm leading-relaxed">Harnessing Python's power to extract data from chaos. Built high-precision invoice processing tools.</p>
+                    </div>
+
+                    <div class="p-8 border border-white/5 rounded-2xl bg-white/[0.02] hover:bg-white/[0.04] transition-all">
+                        <div class="w-12 h-12 bg-[#39FF14]/10 rounded-lg flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6 text-[#39FF14]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3">Cloud & DevOps</h4>
+                        <p class="text-gray-500 text-sm mb-4">AWS, Docker, CI/CD, Nginx</p>
+                        <p class="text-gray-400 text-sm leading-relaxed">Containerizing applications and deploying to scalable cloud environments for global availability.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section class="max-w-7xl mx-auto px-6 py-20 border-t border-white/5">
+            <h2 class="text-2xl font-display font-bold mb-12 flex items-center gap-4">
+                <span class="text-[#39FF14] text-sm">/02</span> COLLABORATION AREAS
+            </h2>
+            <div class="flex flex-wrap gap-4">
+                <span class="px-8 py-4 border border-white/10 rounded-lg font-mono hover:bg-[#39FF14] hover:text-black cursor-default transition-all">Custom API Development</span>
+                <span class="px-8 py-4 border border-white/10 rounded-lg font-mono hover:bg-[#39FF14] hover:text-black cursor-default transition-all">Smart Contract Engineering</span>
+                <span class="px-8 py-4 border border-white/10 rounded-lg font-mono hover:bg-[#39FF14] hover:text-black cursor-default transition-all">Blockchain Verification</span>
+                <span class="px-8 py-4 border border-white/10 rounded-lg font-mono hover:bg-[#39FF14] hover:text-black cursor-default transition-all">Invoice OCR Solutions</span>
+                <span class="px-8 py-4 border border-white/10 rounded-lg font-mono hover:bg-[#39FF14] hover:text-black cursor-default transition-all">Web3 Integration</span>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="max-w-7xl mx-auto px-6 pt-32">
+            <div class="p-12 md:p-24 bg-[#39FF14] text-black rounded-3xl overflow-hidden relative group">
+                <div class="absolute inset-0 opacity-10 pointer-events-none grid-bg"></div>
+                <div class="relative z-10 text-center">
+                    <h2 class="text-4xl md:text-6xl font-display font-bold mb-8">Ready to decentralize?</h2>
+                    <a href="contact.html" class="inline-block px-10 py-5 bg-black text-white font-bold rounded-full hover:scale-105 transition-transform">
+                        LET'S BUILD SOMETHING IMMUTABLE
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <div>
+                    <a href="index.html" class="font-display font-bold text-lg tracking-tighter">
+                        PARTHIV<span class="text-[#39FF14]">.</span>PARMAR
+                    </a>
+                    <p class="text-gray-500 text-xs mt-2 font-mono">AHMEDABAD, INDIA // REMOTE GLOBAL</p>
+                </div>
+                <div class="flex space-x-6 text-sm font-mono">
+                    <a href="#" class="hover:text-[#39FF14] transition-colors">LINKEDIN</a>
+                    <a href="#" class="hover:text-[#39FF14] transition-colors">GITHUB</a>
+                    <a href="#" class="hover:text-[#39FF14] transition-colors">TWITTER</a>
+                </div>
+                <p class="text-gray-600 text-xs font-mono uppercase">
+                    &copy; 2023 // ALL BLOCKS RESERVED
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lenis smooth scroll
+        const lenis = new Lenis();
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero Reveal
+        gsap.from("h1", {
+            y: 100,
+            opacity: 0,
+            duration: 1,
+            ease: "power4.out",
+            delay: 0.2
+        });
+
+        gsap.from(".terminal-header, .terminal-header + div", {
+            x: 50,
+            opacity: 0,
+            duration: 1.2,
+            ease: "power3.out",
+            delay: 0.5
+        });
+
+        // Skill Blocks Reveal
+        gsap.from(".md\\:w-2\\/3 > div", {
+            scrollTrigger: {
+                trigger: ".md\\:w-2\\/3",
+                start: "top 80%",
+            },
+            y: 50,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.2,
+            ease: "power2.out"
+        });
+
+        // Section header reveal
+        gsap.from(".md\\:w-1\\/3 h2", {
+            scrollTrigger: {
+                trigger: ".md\\:w-1\\/3",
+                start: "top 80%",
+            },
+            x: -50,
+            opacity: 0,
+            duration: 1
+        });
+    </script>
+</body>
+</html>
