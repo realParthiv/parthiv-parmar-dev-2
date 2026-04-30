@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Parthiv Parmar - Associate Python & Blockchain Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#39FF14',
+                        secondary: '#0F0F0F',
+                        accent: '#1A1A1A',
+                        darker: '#050505',
+                    },
+                    fontFamily: {
+                        display: ['Space Grotesk', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --primary: #39FF14;
+            --secondary: #0F0F0F;
+            --accent: #1A1A1A;
+            --darker: #050505;
+            --color-primary: #39FF14;
+            --color-secondary: #0F0F0F;
+            --color-accent: #1A1A1A;
+        }
+
+        body {
+            background-color: var(--darker);
+            color: #f0f0f0;
+            overflow-x: hidden;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .font-display { font-family: 'Space Grotesk', sans-serif; }
+
+        .grid-bg {
+            background-image: radial-gradient(circle, #39FF14 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: 0.05;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .glow-hover:hover {
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.2);
+            border-color: var(--primary);
+        }
+
+        .input-field {
+            background: var(--accent);
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(57, 255, 20, 0.1);
+        }
+
+        .terminal-header {
+            background: #2A2A2A;
+            border-radius: 8px 8px 0 0;
+            padding: 8px 16px;
+            display: flex;
+            gap: 6px;
+        }
+
+        .dot { width: 10px; height: 10px; border-radius: 50%; }
+        .dot-red { background: #ff5f56; }
+        .dot-yellow { background: #ffbd2e; }
+        .dot-green { background: #27c93f; }
+
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: rgba(57, 255, 20, 0.1);
+            position: absolute;
+            z-index: 10;
+            top: 0;
+            animation: scanning 4s linear infinite;
+        }
+
+        @keyframes scanning {
+            0% { top: 0%; }
+            100% { top: 100%; }
+        }
+
+        nav a.active {
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body class="bg-darker">
+    <div class="grid-bg"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 px-6 py-6 flex justify-between items-center mix-blend-difference">
+        <a href="index.html" class="text-white font-display text-xl font-bold tracking-tighter">
+            PARTHIV<span class="text-primary">.</span>DEV
+        </a>
+        <div class="hidden md:flex gap-8 items-center bg-black/40 backdrop-blur-md px-8 py-3 rounded-full border border-white/10">
+            <a href="index.html" class="text-sm uppercase tracking-widest hover:text-primary transition-colors">Home</a>
+            <a href="about.html" class="text-sm uppercase tracking-widest hover:text-primary transition-colors">About</a>
+            <a href="work.html" class="text-sm uppercase tracking-widest hover:text-primary transition-colors">Work</a>
+            <a href="contact.html" class="text-sm uppercase tracking-widest active text-primary transition-colors font-bold">Contact</a>
+        </div>
+        <a href="#contact" class="hidden md:block bg-primary text-secondary px-6 py-2 rounded font-bold text-sm uppercase hover:bg-white transition-all">
+            Hire Me
+        </a>
+    </nav>
+
+    <main class="pt-32 pb-20 px-6 lg:px-20 max-w-7xl mx-auto">
+        <!-- Hero Section -->
+        <header class="mb-20">
+            <div class="flex items-center gap-4 mb-4">
+                <span class="h-px w-12 bg-primary"></span>
+                <span class="text-primary font-display tracking-[0.3em] text-xs uppercase">Communication Protocol</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-display font-bold leading-tight max-w-3xl">
+                Initialize <span class="text-primary">Handshake</span>.
+            </h1>
+            <p class="mt-6 text-gray-400 text-lg max-w-xl font-light leading-relaxed">
+                Whether you're looking to architect a scalable Python backend, develop a secure smart contract, or integrate Web3 solutions, let's build the future together.
+            </p>
+        </header>
+
+        <div class="grid lg:grid-cols-2 gap-16 items-start">
+            <!-- Form Section -->
+            <section class="order-2 lg:order-1">
+                <div class="bg-accent/30 border border-white/5 p-8 rounded-2xl backdrop-blur-sm relative overflow-hidden">
+                    <div class="scanline"></div>
+                    <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+                        <!-- WEB3FORMS: Replace value with your key from web3forms.com -->
+                        <input type="hidden" name="access_key" value="REPLACE_WITH_YOUR_WEB3FORMS_KEY">
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label class="text-xs uppercase tracking-widest text-primary font-bold">Node Name</label>
+                                <input type="text" name="name" required placeholder="John Doe" class="input-field w-full px-4 py-4 rounded-lg text-white font-light">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-xs uppercase tracking-widest text-primary font-bold">Access Point (Email)</label>
+                                <input type="email" name="email" required placeholder="john@example.com" class="input-field w-full px-4 py-4 rounded-lg text-white font-light">
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="text-xs uppercase tracking-widest text-primary font-bold">Protocol Details (Message)</label>
+                            <textarea name="message" required rows="6" placeholder="Describe your project, blockchain requirements, or backend needs..." class="input-field w-full px-4 py-4 rounded-lg text-white font-light resize-none"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-primary py-5 rounded-lg text-secondary font-bold font-display uppercase tracking-widest text-lg hover:bg-white hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-3">
+                            Transmit Message
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Info/Side Section -->
+            <aside class="order-1 lg:order-2 space-y-10">
+                <!-- Terminal Style Info -->
+                <div class="rounded-xl overflow-hidden shadow-2xl border border-white/10">
+                    <div class="terminal-header">
+                        <div class="dot dot-red"></div>
+                        <div class="dot dot-yellow"></div>
+                        <div class="dot dot-green"></div>
+                        <span class="text-[10px] text-gray-500 font-mono ml-2 uppercase tracking-tighter">node_info.json</span>
+                    </div>
+                    <div class="bg-secondary p-8 font-mono text-sm leading-relaxed">
+                        <div class="text-primary opacity-50 mb-4">// Contact Details</div>
+                        <div class="space-y-1">
+                            <p><span class="text-blue-400">"developer"</span>: <span class="text-primary">"Parthiv Parmar"</span>,</p>
+                            <p><span class="text-blue-400">"location"</span>: <span class="text-primary">"Ahmedabad, India"</span>,</p>
+                            <p><span class="text-blue-400">"email"</span>: <span class="text-primary underline cursor-pointer hover:text-white transition-colors">"your@email.com"</span>,</p>
+                            <p><span class="text-blue-400">"timezone"</span>: <span class="text-primary">"IST (UTC +5:30)"</span>,</p>
+                            <p><span class="text-blue-400">"stack"</span>: [
+                                <span class="text-gray-400">"Python"</span>, 
+                                <span class="text-gray-400">"Django"</span>, 
+                                <span class="text-gray-400">"Solidity"</span>, 
+                                <span class="text-gray-400">"FastAPI"</span>
+                            ],</p>
+                            <p><span class="text-blue-400">"availability"</span>: <span class="text-white bg-green-900/40 px-2 rounded">OPEN_FOR_COLLABORATION</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Links -->
+                <div class="space-y-4">
+                    <h3 class="text-xs uppercase tracking-widest text-primary font-bold">Social Gateways</h3>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#" class="group px-6 py-4 bg-accent border border-white/10 rounded-xl hover:border-primary transition-all flex items-center gap-3 flex-1 min-w-[140px]">
+                            <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-primary transition-colors">
+                                <svg class="w-4 h-4 text-white group-hover:text-black" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                            </div>
+                            <span class="text-sm font-display tracking-wider uppercase">LinkedIn</span>
+                        </a>
+                        <a href="#" class="group px-6 py-4 bg-accent border border-white/10 rounded-xl hover:border-primary transition-all flex items-center gap-3 flex-1 min-w-[140px]">
+                            <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-primary transition-colors">
+                                <svg class="w-4 h-4 text-white group-hover:text-black" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            </div>
+                            <span class="text-sm font-display tracking-wider uppercase">GitHub</span>
+                        </a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-40 border-t border-white/5 py-12 px-6 lg:px-20 bg-secondary/50">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="font-display font-bold text-xl tracking-tighter">
+                PARTHIV<span class="text-primary">.</span>DEV
+            </div>
+            
+            <div class="flex gap-10 text-gray-500 text-xs uppercase tracking-widest font-bold">
+                <a href="#" class="hover:text-primary transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-primary transition-colors">Terminals</a>
+                <a href="#" class="hover:text-primary transition-colors">Secure Layer</a>
+            </div>
+
+            <div class="text-gray-500 text-xs">
+                © 2023 - Ahmedabad, India. Built with Pythonic Precision.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth Scroll initialization
+        const lenis = new Lenis();
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        const tl = gsap.timeline();
+
+        tl.from("nav", {
+            y: -100,
+            opacity: 0,
+            duration: 1,
+            ease: "power4.out"
+        })
+        .from("h1", {
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            ease: "power4.out"
+        }, "-=0.5")
+        .from("header p, header .flex", {
+            y: 30,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.2,
+            ease: "power4.out"
+        }, "-=0.7")
+        .from("aside > div", {
+            x: 50,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.3,
+            ease: "power4.out"
+        }, "-=0.8")
+        .from("form", {
+            scale: 0.95,
+            opacity: 0,
+            duration: 1.2,
+            ease: "power4.out"
+        }, "-=1");
+
+        // Hover animations for inputs
+        const inputs = document.querySelectorAll('.input-field');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                gsap.to(input, {
+                    scale: 1.01,
+                    duration: 0.3,
+                    ease: "power2.out"
+                });
+            });
+            input.addEventListener('blur', () => {
+                gsap.to(input, {
+                    scale: 1,
+                    duration: 0.3,
+                    ease: "power2.out"
+                });
+            });
+        });
+    </script>
+</body>
+</html>
