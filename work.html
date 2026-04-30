@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work | Parthiv Parmar - Python & Blockchain Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#39FF14',
+                        secondary: '#0F0F0F',
+                        accent: '#1A1A1A',
+                        dark: '#050505',
+                    },
+                    fontFamily: {
+                        display: ['Space Grotesk', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --color-primary: #39FF14;
+            --color-secondary: #0F0F0F;
+            --color-accent: #1A1A1A;
+            --primary: var(--color-primary);
+            --secondary: var(--color-secondary);
+            --accent: var(--color-accent);
+        }
+
+        body {
+            background-color: var(--secondary);
+            color: #f0f0f0;
+            overflow-x: hidden;
+        }
+
+        .grid-pattern {
+            background-image: radial-gradient(circle at 2px 2px, rgba(57, 255, 20, 0.05) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+
+        .glow-hover:hover {
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.2);
+            border-color: var(--primary);
+        }
+
+        .text-glow {
+            text-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
+        }
+
+        .terminal-header {
+            border-left: 4px solid var(--primary);
+            background: linear-gradient(90deg, rgba(57, 255, 20, 0.1) 0%, transparent 100%);
+        }
+
+        .project-card {
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .line-reveal {
+            clip-path: polygon(0 0, 0 100%, 0 100%, 0 0);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0F0F0F;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary);
+        }
+
+        .noise-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            content: "";
+            opacity: 0.02;
+            z-index: 9999;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="font-body">
+    <div class="noise-bg"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 px-6 py-4 flex justify-between items-center backdrop-blur-md border-b border-white/5 bg-secondary/80">
+        <div class="flex items-center gap-2">
+            <div class="w-8 h-8 bg-primary rounded-sm flex items-center justify-center text-dark font-bold">P</div>
+            <span class="font-display font-bold tracking-tighter text-xl hidden sm:block">PARTHIV PARMAR</span>
+        </div>
+        <div class="flex gap-8 text-sm font-medium tracking-widest uppercase">
+            <a href="index.html" class="hover:text-primary transition-colors">Home</a>
+            <a href="about.html" class="hover:text-primary transition-colors">About</a>
+            <a href="work.html" class="text-primary transition-colors">Work</a>
+            <a href="contact.html" class="hover:text-primary transition-colors">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="pt-32 pb-20 px-6 relative overflow-hidden grid-pattern">
+        <div class="max-w-7xl mx-auto">
+            <div class="terminal-header p-4 mb-6 inline-block">
+                <span class="font-mono text-primary text-sm tracking-widest">./portfolio --deploy --filter=featured</span>
+            </div>
+            <h1 class="font-display text-6xl md:text-8xl font-bold leading-none mb-8">
+                ENGINEERED <br><span class="text-primary italic">SYSTEMS</span>
+            </h1>
+            <p class="max-w-2xl text-gray-400 text-lg leading-relaxed border-l border-primary/30 pl-6">
+                Showcasing a collection of high-performance backend architectures, decentralized protocols, and automated extraction tools built for the modern web.
+            </p>
+        </div>
+    </header>
+
+    <!-- Projects Grid -->
+    <main class="max-w-7xl mx-auto px-6 pb-32">
+        <div class="grid grid-cols-1 gap-24">
+            
+            <!-- Project 1: AcademicShield -->
+            <section class="project-item flex flex-col md:flex-row gap-12 items-center">
+                <div class="w-full md:w-1/2 group">
+                    <div class="relative overflow-hidden aspect-video bg-accent rounded-lg border border-white/10 glow-hover transition-all cursor-pointer">
+                        <!-- Technical Visual Placeholder -->
+                        <div class="absolute inset-0 flex items-center justify-center opacity-40 group-hover:opacity-60 transition-opacity">
+                            <div class="w-full h-full p-8 font-mono text-[10px] text-primary overflow-hidden leading-tight">
+                                0x71C7656EC7ab88b098defB751B7401B5f6d8976F...<br>
+                                VERIFY_CERTIFICATE(hash: 0x4f...a9)<br>
+                                status: [IMMUTABLE]<br>
+                                block_height: 18452021<br>
+                                event Transfer(from: 0x0, to: recipient, tokenId: id)<br>
+                                // Blockchain logic injecting here<br>
+                                class AcademicShield(SmartContract):<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;def verify_hash(self, student_id):<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return self.ledger[student_id]
+                            </div>
+                        </div>
+                        <div class="absolute bottom-6 left-6">
+                            <span class="bg-primary text-dark px-3 py-1 text-xs font-bold uppercase tracking-widest">Blockchain / Web3</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <span class="font-mono text-primary text-sm mb-4 block">#001_SYSTEM</span>
+                    <h2 class="font-display text-4xl font-bold mb-4">AcademicShield</h2>
+                    <p class="text-gray-400 mb-6 text-lg">
+                        A blockchain-powered system designed for immutable certificate verification and academic security. It bridges the gap between academic institutions and external verifiers, ensuring zero-tampering of credentials.
+                    </p>
+                    <div class="flex flex-wrap gap-3 mb-8">
+                        <span class="px-4 py-1 rounded-full border border-white/20 text-xs text-gray-300">Solidity</span>
+                        <span class="px-4 py-1 rounded-full border border-white/20 text-xs text-gray-300">Python</span>
+                        <span class="px-4 py-1 rounded-full border border-white/20 text-xs text-gray-300">FastAPI</span>
+                        <span class="px-4 py-1 rounded-full border border-white/20 text-xs text-gray-300">Ethereum</span>
+                    </div>
+                    <a href="#" class="inline-flex items-center gap-2 text-primary font-bold tracking-widest text-sm uppercase hover:gap-4 transition-all">
+                        View Architecture <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Project 2: PujaGuru -->
+            <section class="project-item flex flex-col md:flex-row-reverse gap-12 items-center">
+                <div class="w-full md:w-1/2 group">
+                    <div class="relative overflow-hidden aspect-video bg-accent rounded-lg border border-white/10 glow-hover transition-all cursor-pointer">
+                        <!-- Database/Scaling Visual Placeholder -->
+                        <div class="absolute inset-0 flex flex-col items-center justify-center p-12 gap-4">
+                            <div class="w-full bg-white/5 h-4 rounded-full overflow-hidden">
+                                <div class="bg-primary w-[85%] h-full"></div>
+                            </div>
+                            <div class="w-full bg-white/5 h-4 rounded-full overflow-hidden">
+                                <div class="bg-primary w-[65%] h-full"></div>
+                            </div>
+                            <div class="w-full bg-white/5 h-4 rounded-full overflow-hidden">
+                                <div class="bg-primary w-[95%] h-full"></div>
+                            </div>
+                            <div class="mt-4 font-mono text-primary text-xs tracking-tighter uppercase">Query Load: 450ms | Scalability: Optimized</div>
+                        </div>
+                        <div class="absolute bottom-6 left-6">
+                            <span class="bg-primary text-dark px-3 py-1 text-xs font-bold uppercase tracking-widest">Enterprise Django</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <span class="font-mono text-primary text-sm mb-4 block">#002_SYSTEM</span>
+                    <h2 class="font-display text-4xl font-bold mb-4">PujaGuru</h2>
+                    <p class="text-gray-400 mb-6 text-lg">
+                        A scalable religious services booking platform developed with complex Django architectures. Managed high-concurrency booking logic and multi-tenant database structuring for international clients.
+                    </p>
+                    <div class="flex flex-wrap gap-3 mb-8">
+                        <span class="px-4 py-1 rounded-full border border-white/20 text-xs text-gray-300">Django Rest Framework</span>
+                        <span class="px-4 py-1 rounded-full border border-white/20 text-xs text-gray-300">PostgreSQL</span>
+                        <span class="px-4 py-1 rounded-full border border-white/20 text-xs text-gray-300">Redis</span>
+                        <span class="px-4 py-1 rounded-full border border-white/20 text-xs text-gray-300">AWS</span>
+                    </div>
+                    <a href="#" class="inline-flex items-center gap-2 text-primary font-bold tracking-widest text-sm uppercase hover:gap-4 transition-all">
+                        Case Study <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Project 3: Invoice OCR System -->
+            <section class="project-item flex flex-col md:flex-row gap-12 items-center">
+                <div class="w-full md:w-1/2 group">
+                    <div class="relative overflow-hidden aspect-video bg-accent rounded-lg border border-white/10 glow-hover transition-all cursor-pointer">
+                        <!-- AI/OCR Visual Placeholder -->
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-48 h-64 border-2 border-primary/20 relative">
+                                <div class="absolute top-0 w-full h-[2px] bg-primary animate-scan"></div>
+                                <div class="p-4 space-y-3">
+                                    <div class="w-full h-2 bg-primary/20"></div>
+                                    <div class="w-2/3 h-2 bg-primary/20"></div>
+                                    <div class="w-full h-2 bg-primary/20"></div>
+                                    <div class="w-1/2 h-2 bg-primary/20"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <style>
+                            @keyframes scan {
+                                0% { top: 0; }
+                                100% { top: 100%; }
+                            }
+                            .animate-scan {
+                                animation: scan 3s linear infinite;
+                            }
+                        </style>
+                        <div class="absolute bottom-6 left-6">
+                            <span class="bg-primary text-dark px-3 py-1 text-xs font-bold uppercase tracking-widest">Machine Learning / Automation</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <span class="font-mono text-primary text-sm mb-4 block">#003_SYSTEM</span>
+                    <h2 class="font-display text-4xl font-bold mb-4">Invoice OCR System</h2>
+                    <p class="text-gray-400 mb-6 text-lg">
+                        High-precision automated data extraction tool utilizing Python-based machine learning libraries. Processes thousands of invoices monthly with 98% accuracy in entity recognition.
+                    </p>
+                    <div class="flex flex-wrap gap-3 mb-8">
+                        <span class="px-4 py-1 rounded-full border border-white/20 text-xs text-gray-300">Tesseract OCR</span>
+                        <span class="px-4 py-1 rounded-full border border-white/20 text-xs text-gray-300">OpenCV</span>
+                        <span class="px-4 py-1 rounded-full border border-white/20 text-xs text-gray-300">PyTorch</span>
+                        <span class="px-4 py-1 rounded-full border border-white/20 text-xs text-gray-300">Flask</span>
+                    </div>
+                    <a href="#" class="inline-flex items-center gap-2 text-primary font-bold tracking-widest text-sm uppercase hover:gap-4 transition-all">
+                        Analyze Logic <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Project Inquiry CTA -->
+    <section class="bg-accent py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="font-display text-4xl md:text-6xl font-bold mb-8">HAVE A PROTOCOL TO BUILD?</h2>
+            <p class="text-gray-400 max-w-xl mx-auto mb-12">
+                I am currently open for new contracts in Python Backend Engineering and Web3 implementation. Let's discuss your technical requirements.
+            </p>
+            <a href="contact.html" class="bg-primary text-dark px-10 py-4 font-bold tracking-widest uppercase hover:scale-105 transition-transform inline-block">
+                Initialize Connection
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-white/5">
+        <div class="max-w-7xl mx-auto flex flex-col md:row justify-between items-center gap-8">
+            <div class="font-display font-bold text-xl tracking-tighter">PARTHIV-PARMAR-DEV</div>
+            <div class="flex gap-10">
+                <a href="#" class="text-gray-400 hover:text-primary transition-colors uppercase text-xs tracking-widest font-mono">LinkedIn</a>
+                <a href="#" class="text-gray-400 hover:text-primary transition-colors uppercase text-xs tracking-widest font-mono">GitHub</a>
+                <a href="#" class="text-gray-400 hover:text-primary transition-colors uppercase text-xs tracking-widest font-mono">Twitter</a>
+            </div>
+            <div class="text-gray-600 text-[10px] font-mono">
+                © 2023 // AHMEDABAD // BACKEND & WEB3 ENGINEER
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lenis Smooth Scroll
+        const lenis = new Lenis();
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Animate Project Sections
+        gsap.utils.toArray('.project-item').forEach((section, i) => {
+            gsap.from(section, {
+                opacity: 0,
+                y: 50,
+                duration: 1,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: section,
+                    start: "top 80%",
+                }
+            });
+        });
+
+        // Header Reveal
+        gsap.from("h1", {
+            opacity: 0,
+            y: 30,
+            duration: 1,
+            delay: 0.2,
+            ease: "power4.out"
+        });
+
+        // Terminal text typewriter simulation (simple)
+        const terminalHeader = document.querySelector('.terminal-header span');
+        const text = terminalHeader.innerText;
+        terminalHeader.innerText = '';
+        let index = 0;
+
+        function typeWriter() {
+            if (index < text.length) {
+                terminalHeader.innerText += text.charAt(index);
+                index++;
+                setTimeout(typeWriter, 50);
+            }
+        }
+        typeWriter();
+    </script>
+</body>
+</html>
