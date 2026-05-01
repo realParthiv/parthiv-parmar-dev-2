@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -214,7 +214,7 @@
                 <!-- Service 4 -->
                 <div class="p-8 bg-surface border border-white/5 glow-hover transition-all group reveal">
                     <div class="w-12 h-12 mb-6 flex items-center justify-center bg-accent text-primary">
-                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 00-2 2z"></path></svg>
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 2 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 00-2 2z"></path></svg>
                     </div>
                     <h3 class="text-xl font-bold mb-4 group-hover:text-primary transition-colors">Invoice OCR</h3>
                     <p class="text-muted text-sm leading-relaxed">High-precision automated data extraction utilizing Python-based machine learning and Tesseract.</p>
@@ -334,15 +334,15 @@
                             <p class="text-xl font-bold group-hover:text-primary transition-colors">your@email.com</p>
                         </a>
                         <div class="flex gap-6">
-                            <a href="#" class="w-12 h-12 flex items-center justify-center border border-white/10 hover:border-primary text-muted hover:text-primary transition-all">LI</a>
-                            <a href="#" class="w-12 h-12 flex items-center justify-center border border-white/10 hover:border-primary text-muted hover:text-primary transition-all">GH</a>
-                            <a href="#" class="w-12 h-12 flex items-center justify-center border border-white/10 hover:border-primary text-muted hover:text-primary transition-all">TW</a>
+                            <a href="https://www.linkedin.com/in/parthivparmar/" class="w-12 h-12 flex items-center justify-center border border-white/10 hover:border-primary text-muted hover:text-primary transition-all">LI</a>
+                            <a href="https://github.com/realParthiv/" class="w-12 h-12 flex items-center justify-center border border-white/10 hover:border-primary text-muted hover:text-primary transition-all">GH</a>
+                            <a href="https://www.instagram.com/paarthiiv/" class="w-12 h-12 flex items-center justify-center border border-white/10 hover:border-primary text-muted hover:text-primary transition-all">IG</a>
                         </div>
                     </div>
                 </div>
 
                 <div class="reveal">
-                    <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6 bg-surface p-8 border border-white/10">
+                    <form id="contactForm" class="space-y-6 bg-surface p-8 border border-white/10">
                         <input type="hidden" name="access_key" value="3eeabaef-b034-4002-a8bc-ca6816dccfd7">
                         
                         <div class="grid md:grid-cols-2 gap-6">
@@ -363,6 +363,7 @@
                             <label class="block text-xs uppercase tracking-widest text-muted mb-2">Message</label>
                             <textarea name="message" rows="5" class="w-full bg-accent border border-white/10 p-4 outline-none focus:border-primary transition-colors" required></textarea>
                         </div>
+                        <div id="formMessage" class="hidden py-3 text-center rounded text-sm"></div>
                         <button type="submit" class="w-full py-4 bg-primary text-black font-bold uppercase tracking-widest hover:bg-white transition-colors">
                             Send Message
                         </button>
@@ -380,9 +381,9 @@
                 <span class="text-sm font-display tracking-widest uppercase text-muted">Parthiv Parmar &copy; 2023</span>
             </div>
             <div class="flex gap-8 text-xs font-bold uppercase tracking-[0.2em] text-muted">
-                <a href="#" class="hover:text-primary transition-colors">LinkedIn</a>
-                <a href="#" class="hover:text-primary transition-colors">GitHub</a>
-                <a href="#" class="hover:text-primary transition-colors">Twitter</a>
+                <a href="https://www.linkedin.com/in/parthivparmar/" class="hover:text-primary transition-colors">LinkedIn</a>
+                <a href="https://github.com/realParthiv/" class="hover:text-primary transition-colors">GitHub</a>
+                <a href="https://www.instagram.com/paarthiiv/" class="hover:text-primary transition-colors">Instagram</a>
             </div>
         </div>
     </footer>
@@ -456,6 +457,78 @@
             card.addEventListener('mouseleave', () => {
                 gsap.to(cursor, { scale: 1, opacity: 1 });
             });
+        });
+
+        // Web3Forms Custom Submission and Security
+        const contactForm = document.getElementById('contactForm');
+        const formMessage = document.getElementById('formMessage');
+        const submitButton = contactForm.querySelector('button[type="submit"]');
+        const accessKeyInput = contactForm.querySelector('input[name="access_key"]');
+        const accessKey = accessKeyInput ? accessKeyInput.value : '';
+        const COOLDOWN_DURATION = 60 * 60 * 1000; // 1 hour in milliseconds
+
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const lastSubmissionTime = localStorage.getItem('lastSubmissionTime');
+            const currentTime = Date.now();
+
+            if (lastSubmissionTime && (currentTime - parseInt(lastSubmissionTime, 10)) < COOLDOWN_DURATION) {
+                formMessage.classList.remove('hidden', 'bg-primary/20', 'text-primary');
+                formMessage.classList.add('bg-red-500/20', 'text-red-300');
+                formMessage.textContent = 'Please wait 1 hour before submitting again.';
+                formMessage.style.display = 'block';
+                // Hide message after some time
+                setTimeout(() => {
+                    formMessage.style.display = 'none';
+                    formMessage.classList.add('hidden');
+                }, 5000);
+                return;
+            }
+
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sending...';
+
+            const formData = new FormData(contactForm);
+            formData.append('access_key', accessKey); 
+            formData.append('subject', 'New Contact Form Submission from Website');
+            formData.append('redirect', 'false'); // Prevent Web3Forms default redirect
+
+            try {
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const data = await response.json();
+
+                formMessage.classList.remove('hidden', 'bg-red-500/20', 'text-red-300', 'bg-primary/20', 'text-primary');
+                formMessage.style.display = 'block';
+
+                if (data.success) {
+                    formMessage.classList.add('bg-primary/20', 'text-primary');
+                    formMessage.textContent = 'Message sent successfully! Thank you for contacting me.';
+                    contactForm.reset();
+                    localStorage.setItem('lastSubmissionTime', currentTime);
+                } else {
+                    formMessage.classList.add('bg-red-500/20', 'text-red-300');
+                    formMessage.textContent = data.message || 'An error occurred. Please try again.';
+                }
+            } catch (error) {
+                formMessage.classList.remove('hidden', 'bg-primary/20', 'text-primary');
+                formMessage.classList.add('bg-red-500/20', 'text-red-300');
+                formMessage.style.display = 'block';
+                formMessage.textContent = 'Network error. Please try again later.';
+                console.error('Submission error:', error);
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = 'Send Message';
+                // Hide message after some time
+                setTimeout(() => {
+                    formMessage.style.display = 'none';
+                    formMessage.classList.add('hidden');
+                }, 5000); 
+            }
         });
     </script>
 </body>
